@@ -131,4 +131,53 @@ def val_vec_propios(a):
         return  f"valores: {valor}. vectores: {vectores[0]}"
     else:
         return "Error, matriz no cuadrada"
+    
+def unitario(mat):
+    if len(mat) == len(mat[0]):
+            adjunt = adjunta(mat)
+            comprobador = productoma(mat,adjunt)
+            verificador = True
+            for i in range(len(comprobador)):
+                for j in range(len(comprobador)):
+                    if (i == j and comprobador[i][j] != 1) or (i != j and comprobador[i][j] != 0):
+                        verificador = False
+                        break
+            if verificador:
+                resp = "Es unitaria"
+            else:
+                resp = "NO es unitaria"
+    else:
+        resp = "Error, tamaño de matriz incorrecto"
+    return resp
+
+def hermitiana(mat):
+    if len(mat) == len(mat[0]):
+            adjunt = adjunta(mat)
+            verificador = True
+            for i in range(len(adjunt)):
+                for j in range(len(adjunt)):
+                    if mat[i][j] != adjunt[i][j]:
+                        verificador = False
+                        break
+            if verificador:
+                resp = "Es hermitiana"
+            else:
+                resp = "NO es hermitiana"
+    else:
+        resp = "Error, tamaño de matriz incorrecto"
+    return resp
+
+def producto_tensor(a,b):
+    m = len(a)
+    n = len(b)
+    m_1 = len(a[0])
+    n_1 = len(b[0])
+    fil = m*n
+    col = m_1*n_1
+    result = [[0 for j in range(col)] for k in range(fil)]
+    for j in range(fil):
+        for k in range(col):
+            result[j][k] = (a[j//n][k//n_1])*(b[j%n][k%n_1])
+    return result
+    
 

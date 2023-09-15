@@ -18,5 +18,8 @@ Ingresaran vectores o matrices en las cuales estan compuestas de numeros complej
 14. Norma de un vector
 15. Distancia entre dos vectores
 16. Valores  y vectores propios de una matriz
+17. Revisar si una matriz es unitaria
+18. Revisar si una matriz es Hermitiana
+19. Producto tensor de dos matrices/vectores
 ### Autor
 Juan Andres Rodriguez Peñuela

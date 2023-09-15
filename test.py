@@ -90,6 +90,24 @@ class TestLibVecSpaces(unittest.TestCase):
         respc = lm.val_vec_propios(a)
         self.assertEqual(respc, respm)
 
-
+    def test_unitaria(self):
+        u = [[2/3,(-2+1j)/3],[(2+1j)/3,2/3]]
+        respm = "Es unitaria"
+        respc = lm.unitario(u)
+        self.assertEqual(respc, respm)
+    
+    def test_hermitiana(self):
+        u = [[3,2-1j,-5j],[2+1j,0,9-5j],[5j,9+5j,6]]
+        respm =  "Es hermitiana"
+        respc = lm.hermitiana(u)
+        self.assertEqual(respc, respm)
+    
+    def test_tensor(self):
+        u = [[2,3],[1,4]]
+        v = [[5,3,2],[1,0,2],[-2,5,6]]
+        respm = [[10, 6, 4, 15, 9, 6], [2, 0, 4, 3, 0, 6], [-4, 10, 12, -6, 15, 18], [5, 3, 2, 20, 12, 8], [1, 0, 2, 4, 0, 8], [-2, 5, 6, -8, 20, 24]]
+        respc = lm.producto_tensor(u,v)
+        self.assertEqual(respc, respm)
+		
 if __name__ == "__main__":
 	unittest.main()
